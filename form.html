@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: url(images/r1.jpg);
+            background-size: 100% 100%;
+            background-size: cover;
+            position: relative;
+            top: 0;
+            left: 0;
+
+        }
+        .bg{
+            background: rgb(218, 203, 203);
+            padding: 20px;
+            width: 510px;
+            border-radius: 50px;
+            
+            position: absolute;
+            top: 100px;
+            left: 370px;
+        }
+        table{
+            padding: 25px;
+        }
+        .txt{
+            padding: 0 25px
+        }
+        input{
+            padding: 10px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <form>
+            <table>
+                <tr>
+                    <th class="txt" style="font-size: 30px; font-weight: 800;  color: green; padding-bottom: 0 10px;" colspan="2" >Restaurant Booking Form</th>
+                </tr>
+                <tr>
+                    <td class="txt"><b>First Name</b></td>
+                    <td><input type="text" name="firstname"></td>
+                </tr>
+    
+                <tr>
+                    <td class="txt"><b>Last Name</b></td>
+                    <td><input type="text" name="lastname"></td>
+                </tr>
+    
+                <tr>
+                    <td class="txt"><b>Choice of Booking</b> </td>
+                        <td>
+                    <select id="cob" onchange=" return validate()">
+                        <option value="option1" id="sl">Select</option>
+                        <option value="option2" id="fdb">Full Day Booking</option>
+                        <option value="option3" id="hdb">Half Day Booking</option>
+                        <option value="option4" id="hb">Hourly Booking</option>
+                    </select>
+                </td>
+                </tr>
+    
+                <tr id="date">
+                    <td class="txt"><b>Date</b></td>
+                    <td><input type="date" name="date">
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td class="txt"><b>Mobile No</b></td>
+                    <td><input type="text" name="mb"></td>
+                </tr>
+    
+                <tr>
+                    <td class="txt"><b>Email ID</b></td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+                <tr id="time">
+                    <td class="txt"><b>Time</b></td>
+                        <td> <input type="time" name="time"></td>
+                </tr>
+                
+    
+                <tr id="slot">
+                    <td class="txt"><b>Slot</b></td>
+                    <td>
+                        <input type="checkbox" name="breakfast"> Breakfast
+                        <input type="checkbox" name="lunch"> Lunch
+                        <input type="checkbox" name="dinner"> Dinner
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        choice = document.getElementById('cob');
+        // console.log(choice);
+        option1 = document.getElementById('sl');
+        option2 = document.getElementById('fdb');
+        // console.log(option2);
+        option3 = document.getElementById('hdb');
+        option4 = document.getElementById('hb');
+        date1 = document.getElementById('date');
+        slot1 = document.getElementById('slot');
+        time1 = document.getElementById('time');
+        // console.log(time1);
+        // console.log(slot1);
+        // console.log(date1);
+
+        function validate(){
+            if(choice.value == option2.value){
+                date1.style.display="none";
+                return false;
+            }
+            if(choice.value == option3.value){
+                date1.style.display="none";
+                slot1.style.display="none";
+                return false;
+            }
+            if(choice.value == option4.value){
+                date1.style.display="none";
+                time1.style.display="none";
+                return false;
+            }
+            if(choice.value == option1.value){
+                date1.style.display="block";
+                time1.style.display="block";
+                slot1.style.display="block";
+                return false;}
+        }
+    </script>
+</body>
+</html>
